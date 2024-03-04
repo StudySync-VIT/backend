@@ -1,23 +1,38 @@
-const getAllTask = (req, res) => {
-	res.send('All items')
+const userSchema = require("../Models/userSchema")
+
+
+const createUser = async (req, res) => {
+    const task = await userSchema.create(req.body)
+    res.body(201).json({task})
 }
 
-const createTask = (req, res) => {
-	res.send('Task created')
-}
 
-const getTask = (req, res) => {
-	res.send('got Single Task')
-}
+// const getAllTask = (req, res) => {
+// 	res.send('All items')
+// }
 
-const updateTask = (req, res) => {
-	res.send('Task Updated')
-}
+// const createTask = async (req, res) => {
+// 	try {
+//         const task = await Task.create(req.body)
+//         res.body(201).json({task})
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
-const deleteTask = (req, res) => {
-	res.send('Task deleted')
-}
+// const getTask = (req, res) => {
+// 	res.send('got Single Task')
+// }
+
+// const updateTask = (req, res) => {
+// 	res.send('Task Updated')
+// }
+
+// const deleteTask = (req, res) => {
+// 	res.send('Task deleted')
+// }
 
 module.exports = {
-	getAllTask, createTask, getTask, updateTask, deleteTask
+	createUser
 }

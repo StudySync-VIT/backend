@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const User = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     Name: {
         type: String,
         required: [true, 'Please provide the subject to the task'],
@@ -30,7 +30,4 @@ const User = new mongoose.Schema({
     }
 })
 
-
-
-
-module.exports = mongoose.model('Task', TaskSchema)
+module.exports = mongoose.model('User', userSchema)
