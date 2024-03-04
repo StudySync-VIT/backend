@@ -1,27 +1,36 @@
 const mongoose = require('mongoose');
 
-const TaskSchema = new mongoose.Schema({
-    subject: {
+const User = new mongoose.Schema({
+    Name: {
         type: String,
         required: [true, 'Please provide the subject to the task'],
         trim: true,
         maxlength: [20, 'name can not be more than 20 characters']
     }, 
 
-    Date: {
+    registrationNumber: {
+        type: String,
+        required: [false]
+    },
+ 
+    googleToken: {
+        type: String,
+        default: null,
+    },
+    
+    microsoftToken: {
+        type: String,
+        default: null
+    },
+
+    CreateDate: {
         type: Date,
-        required: [true, 'Please provide the subject to the task']
-    },
-
-    Time: {
-        type: Time,
-        required: [true, 'Please provide the time']
-    },
-
-    completed: {
-        type: Boolean,
-        default: false
+        required: [true, 'Please provide the subject to the task'],
+        maxlength: [990, 'name can not be more than 20 characters']
     }
 })
+
+
+
 
 module.exports = mongoose.model('Task', TaskSchema)
